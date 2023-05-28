@@ -19,7 +19,7 @@ app.register(require('@fastify/static'), {
 })
 
 app.register(cors, {
-  origin: ['https://localhost:3000']
+  origin: ['*']
 })
 
 app.register(jwt, {

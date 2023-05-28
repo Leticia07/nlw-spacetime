@@ -21,7 +21,7 @@ export async function uploadRoutes(app: FastifyInstance) {
 
     const mimeTypeRegex = /^(image|video)\/[a-zA-Z]*/
     const isValidFileFormat = mimeTypeRegex.test(upload.mimetype)
-    
+
     if (!isValidFileFormat) {
       return reply.status(400).send()
     }
@@ -40,6 +40,6 @@ export async function uploadRoutes(app: FastifyInstance) {
     const fullUrl = request.protocol.concat('://').concat(request.hostname)
     const fileUrl = new URL(`/uploads/${fileName}`, fullUrl).toString()
 
-    return {ok: true}
+    return { fileUrl }
   })
 }
